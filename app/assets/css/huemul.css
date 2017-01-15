@@ -65,6 +65,7 @@ h2 {
 }
 
 input[type=text],
+input[type=email],
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -77,7 +78,8 @@ button {
   border: 0;
 }
 
-input[type=text] {
+input[type=text],
+input[type=email] {
   width: calc(100% - 225px);
   font-family: 'Noto Sans', sans-serif;
   background: none;
@@ -94,6 +96,12 @@ button {
   cursor: pointer;
 }
 
+#btn-login {
+  display: block;
+  margin-right: 140px;
+  float: right;
+}
+
 #main {
   margin: 2em 1em 1em;
 }
@@ -104,9 +112,14 @@ button {
   margin-bottom: 1.5em;
 }
 
+.login {
+  clear: both;
+}
+
 .chat {
   height: 85px;
   position: relative;
+  clear: both;
 }
 
 .chat i {
