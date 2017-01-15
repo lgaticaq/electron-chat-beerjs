@@ -1,17 +1,17 @@
 (function() {
 
   var output = document.querySelector('.output');
-  var input = document.querySelector('input');
-  var button = document.querySelector('button');
-  var author = {name: 'lgatica@protonmail.com'};
+  var inputEmail = document.getElementById('email');
+  var inputMessage = document.getElementById('message');
+  var btnSend = document.getElementById('btn-enviar');
+  var btnLogin = document.getElementById('btn-login');
+  var imgAvatar = document.getElementById('avatar');
+  var login = document.getElementById('login');
+  var author = {name: 'anonymous'};
 
   function getAvatar(email) {
     var profile = gravatar.getUserProfile(email);
     return profile.replace(/(https:\/\/secure\.gravatar\.com)\/(\w{32})/, '$1/avatar/$2?s=50&d=mm');
-  }
-
-  function loadAvatar(image, element) {
-    element.src = image;
   }
 
   author.avatar = getAvatar(author.name);
@@ -37,24 +37,41 @@
   // Escucha nuevos mensajes
   database.ref('rooms/beer-js/messages').on('child_added', insertData);
 
-  input.addEventListener('keyup', function(e) {
+  inputMessage.addEventListener('keyup', function(e) {
     (e.keyCode || e.charCode) === 13 && sendMessage()
   }, false);
-  button.addEventListener('click', sendMessage, false);
+  btnSend.addEventListener('click', sendMessage, false);
+
+  inputEmail.addEventListener('keyup', function(e) {
+    (e.keyCode || e.charCode) === 13 && loadAvatar()
+  }, false);
+  btnLogin.addEventListener('click', loadAvatar, false);
 
   // Envia nuevos mensajes
   function sendMessage() {
-    if (input.value !== '') {
+    if (inputMessage.value !== '') {
       var message = {
         author:{
           name: author.name,
           user_image_url: author.avatar
         },
-        text: input.value,
+        text: inputMessage.value,
         timestamp: Date.now().toString()
       };
-      input.value = '';
+      inputMessage.value = '';
       database.ref('rooms/beer-js/messages').push(message);
+    }
+  }
+
+  // Envia nuevos mensajes
+  function loadAvatar() {
+    if (inputEmail.value !== '') {
+      var img = getAvatar(inputEmail.value);
+      author.name = inputEmail.value;
+      author.avatar = img;
+      imgAvatar.src = img;
+      inputEmail.value = '';
+      login.style.display = 'none';
     }
   }
 
