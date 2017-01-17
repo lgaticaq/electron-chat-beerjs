@@ -11,8 +11,19 @@
   var divLogin = document.getElementById('login');
   var divLogout = document.getElementById('logout');
   var defaultAvatar = 'https://secure.gravatar.com/avatar/00000000000000000000000000000000?s=50&d=mm';
-  var author = {name: 'anonymous', avatar: defaultAvatar};
+  var author = {
+    name: localStorage.getItem('username') || 'anonymous',
+    avatar: localStorage.getItem('avatar') || defaultAvatar
+  };
+
+  if (author.name !== 'anonymous') {
+    imgAvatar.src = author.avatar;
+    divLogin.style.display = 'none';
+    divLogout.style.display = 'block';
+  }
+
   var lastMessage;
+  var md = window.markdownit();
 
   function getAvatar(email) {
     var profile = gravatar.getUserProfile(email);
@@ -50,7 +61,8 @@
 
   function insertData(data) {
     var message = data.val();
-    output.innerHTML = '<p data-id="' + message.timestamp + '"><img class="avatar" title="' + message.author.name + ' (' + new Date(parseInt(message.timestamp, 10)) + ')" src="' + message.author.user_image_url + '"><span>' + message.text + '</span></p>' + output.innerHTML;
+    var html = message.markdown || '<span>' + message.text + '</span>';
+    output.innerHTML = '<p data-id="' + message.timestamp + '"><img class="avatar" title="' + message.author.name + ' (' + new Date(parseInt(message.timestamp, 10)) + ')" src="' + message.author.user_image_url + '">' + html + '</p>' + output.innerHTML;
     var now = new Date;
     now.setSeconds(now.getSeconds() - 5);
     if ((lastMessage !== message.timestamp) && (now.getTime() < parseInt(message.timestamp, 10))) {
@@ -85,12 +97,20 @@
   function sendMessage() {
     if (inputMessage.value !== '') {
       lastMessage = Date.now().toString();
+      var html = md.render(inputMessage.value);
+      html = html.replace(/<p>/g, '<span>');
+      html = html.replace(/<\/p>/g, '</span>');
+      html = html.replace(/\n/g, '');
+      var div = document.createElement('div');
+      div.innerHTML = html;
+      var text = div.textContent || div.innerText || '';
       var message = {
         author:{
           name: author.name,
           user_image_url: author.avatar
         },
-        text: inputMessage.value,
+        text: text,
+        markdown: html,
         timestamp: lastMessage
       };
       inputMessage.value = '';
@@ -109,6 +129,8 @@
       inputUsername.value = '';
       divLogin.style.display = 'none';
       divLogout.style.display = 'block';
+      localStorage.setItem('username', author.name);
+      localStorage.setItem('avatar', author.avatar);
     }
   }
 
@@ -118,6 +140,8 @@
     imgAvatar.src = defaultAvatar;
     divLogin.style.display = 'block';
     divLogout.style.display = 'none';
+    localStorage.removeItem('username');
+    localStorage.removeItem('avatar');
   }
 
 })();
