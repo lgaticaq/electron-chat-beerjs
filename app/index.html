@@ -17,9 +17,13 @@
     <section id="main">
 
       <div id="login">
-        <h3>Login</h3>
-        <input type="email" id="email" placeholder="Email">
+        <input type="email" id="email" placeholder="Email (gravatar)" required="required">
+        <input type="text" id="username" placeholder="Usuario" required="required">
         <button id="btn-login">Login</button>
+      </div>
+
+      <div id="logout" style="display: none;">
+        <button id="btn-logout">Logout</button>
       </div>
 
       <div class="chat">
