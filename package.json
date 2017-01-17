@@ -16,9 +16,9 @@
     "build:win": "npm run clean:win && electron-packager . --out=dist --platform=win32 --arch=x64 --prune --asar --overwrite",
     "build:linux": "npm run clean:linux && electron-packager . --out=dist --platform=linux --arch=x64 --prune --asar --overwrite",
     "dist": "npm run dist:osx && npm run dist:win && npm run dist:linux",
-    "dist:osx": "npm run pack:osx && build dist/chat-beerjs-darwin-x64/chat-beerjs.app --mac --x64",
-    "dist:win": "npm run pack:win && build dist/chat-beerjs-win32-x64 --win --x64",
-    "dist:linux": "npm run pack:linux && build dist/chat-beerjs-linux-x64 --linux --x64"
+    "dist:osx": "npm run build:osx && build dist/chat-beerjs-darwin-x64/chat-beerjs.app --mac --x64",
+    "dist:win": "npm run build:win && build dist/chat-beerjs-win32-x64 --win --x64",
+    "dist:linux": "npm run build:linux && build dist/chat-beerjs-linux-x64 --linux --x64"
   },
   "engines": {
     "node": ">=6"
