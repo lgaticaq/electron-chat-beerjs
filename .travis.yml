@@ -22,6 +22,7 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - sourceline: 'ppa:ubuntu-wine/ppa'
     packages:
       - g++-4.8
       - icnsutils
@@ -30,6 +31,7 @@ addons:
       - xz-utils
       - xorriso
       - xvfb
+      - wine1.8
 
 install:
   - nvm install 6
