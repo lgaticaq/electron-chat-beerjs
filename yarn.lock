@@ -566,9 +566,9 @@ electron-builder-http@11.3.0, electron-builder-http@~11.3.0:
     debug "2.6.0"
     fs-extra-p "^3.0.3"
 
-electron-builder-util@11.3.0:
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-11.3.0.tgz#3449491e492be81588438b362062523978141930"
+electron-builder-util@11.4.0:
+  version "11.4.0"
+  resolved "https://registry.yarnpkg.com/electron-builder-util/-/electron-builder-util-11.4.0.tgz#3f9937fd6b1f79d2e418e78d7ed74ff769b00d93"
   dependencies:
     "7zip-bin" "^2.0.4"
     bluebird-lst-c "^1.0.5"
@@ -577,13 +577,13 @@ electron-builder-util@11.3.0:
     electron-builder-http "~11.3.0"
     fs-extra-p "^3.0.3"
     is-ci "^1.0.10"
-    node-emoji "^1.5.0"
-    source-map-support "^0.4.8"
+    node-emoji "^1.5.1"
+    source-map-support "^0.4.9"
     stat-mode "^0.2.2"
 
-electron-builder@^11.3.0:
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-11.3.0.tgz#63a7716a6a9aaa71574f0b37d08630981d2f6541"
+electron-builder@^11.4.4:
+  version "11.4.4"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-11.4.4.tgz#13001f9ba23488d7dbde59caa6bd9366d9751202"
   dependencies:
     "7zip-bin" "^2.0.4"
     asar-electron-builder "^0.13.5"
@@ -593,7 +593,7 @@ electron-builder@^11.3.0:
     cuint "^0.2.2"
     electron-builder-core "11.2.1"
     electron-builder-http "11.3.0"
-    electron-builder-util "11.3.0"
+    electron-builder-util "11.4.0"
     electron-download-tf "3.1.0"
     electron-macos-sign "~1.4.0"
     fs-extra-p "^3.0.3"
@@ -1553,7 +1553,7 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-node-emoji@^1.5.0:
+node-emoji@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.5.1.tgz#fd918e412769bf8c448051238233840b2aff16a1"
   dependencies:
@@ -2157,9 +2157,9 @@ sntp@1.x.x:
   dependencies:
     hoek "2.x.x"
 
-source-map-support@^0.4.8:
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.9.tgz#45eaa04f067e049d987b27599ed014a37750aaff"
+source-map-support@^0.4.9:
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.10.tgz#d7b19038040a14c0837a18e630a196453952b378"
   dependencies:
     source-map "^0.5.3"
 

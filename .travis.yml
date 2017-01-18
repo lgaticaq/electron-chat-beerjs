@@ -6,8 +6,9 @@ language: c
 matrix:
   include:
     - os: osx
+      env: PLATFORM_BUILD=osx
     - os: linux
-      env: CC=clang CXX=clang++ npm_config_clang=1
+      env: CC=clang CXX=clang++ npm_config_clang=1 PLATFORM_BUILD=win-linux
       compiler: clang
 
 node_js:
@@ -43,4 +44,4 @@ before_script:
   - sleep 3
 
 script:
-  - npm run release
+  - npm run publish:$PLATFORM_BUILD
