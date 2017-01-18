@@ -11,7 +11,7 @@ before_install:
   - nvm use --delete-prefix $NODE_VERSION
   - node --version
 install:
-  - yarn install
+  - npm install
 #before_script:
 script:
   - npm test
@@ -22,14 +22,6 @@ before_deploy:
   - brew install makensis
   - npm run dist
 deploy:
-  provider: releases
-  api_key: $GITHUB_API_KEY
-  file:
-    - dist/electron-chat-beerjs_1.0.0_amd64.deb
-    - dist/electron-chat-beerjs_1.0.0_amd64.exe
-    - dist/electron-chat-beerjs_1.0.0_amd64.dmg
+  provider: script
+  script: npm run publish
   skip_cleanup: true
-  on:
-    repo: lgaticaq/electron-chat-beerjs
-    tags: true
-    all_branches: true

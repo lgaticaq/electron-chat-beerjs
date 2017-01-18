@@ -18,7 +18,8 @@
     "dist": "npm run dist:osx && npm run dist:win && npm run dist:linux",
     "dist:osx": "npm run build:osx && build dist/chat-beerjs-darwin-x64/chat-beerjs.app --mac --x64",
     "dist:win": "npm run build:win && build dist/chat-beerjs-win32-x64 --win --x64",
-    "dist:linux": "npm run build:linux && build dist/chat-beerjs-linux-x64 --linux --x64"
+    "dist:linux": "npm run build:linux && build dist/chat-beerjs-linux-x64 --linux --x64",
+    "publish": "build -p always"
   },
   "engines": {
     "node": ">=6"
@@ -60,6 +61,7 @@
         "deb"
       ],
       "synopsis": "Chat simple usado de base para implementar electron"
-    }
+    },
+    "publish": [{"provider": "github"}]
   }
 }
