@@ -19,7 +19,8 @@
     "dist:osx": "npm run build:osx && build dist/chat-beerjs-darwin-x64/chat-beerjs.app --mac --x64",
     "dist:win": "npm run build:win && build dist/chat-beerjs-win32-x64 --win --x64",
     "dist:linux": "npm run build:linux && build dist/chat-beerjs-linux-x64 --linux --x64",
-    "publish": "build -p always"
+    "publish": "build -p onTagOrDraft",
+    "release": "npm run dist && npm run publish"
   },
   "engines": {
     "node": ">=6"
