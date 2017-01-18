@@ -1,0 +1,23 @@
+version: 0.0.{build}
+
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
+
+init:
+  - git config --global core.autocrlf input
+
+install:
+  - ps: Install-Product node 6 x64
+  - npm install
+
+build_script:
+  - node --version
+  - npm --version
+  - npm run publish:win
+
+test: off

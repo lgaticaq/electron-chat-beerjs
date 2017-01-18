@@ -19,12 +19,10 @@
     "build:osx": "npm run pack:osx && build dist/chat-beerjs-darwin-x64/chat-beerjs.app --mac --x64",
     "build:win": "npm run pack:win && build dist/chat-beerjs-win32-x64 --win --x64",
     "build:linux": "npm run pack:linux && build dist/chat-beerjs-linux-x64 --linux --x64",
-    "build:win-linux": "npm run build:win && npm run build:linux",
     "publish": "npm run publish:osx && npm run publish:win && npm run publish:linux",
     "publish:osx": "npm run pack:osx && build dist/chat-beerjs-darwin-x64/chat-beerjs.app --mac --x64 -p onTagOrDraft",
     "publish:win": "npm run pack:win && build dist/chat-beerjs-win32-x64 --win --x64 -p onTagOrDraft",
-    "publish:linux": "npm run pack:linux && build dist/chat-beerjs-linux-x64 --linux --x64 -p onTagOrDraft",
-    "publish:win-linux": "npm run publish:win && npm run publish:linux"
+    "publish:linux": "npm run pack:linux && build dist/chat-beerjs-linux-x64 --linux --x64 -p onTagOrDraft"
   },
   "engines": {
     "node": ">=6"

@@ -6,9 +6,8 @@ language: c
 matrix:
   include:
     - os: osx
-      env: PLATFORM_BUILD=osx
     - os: linux
-      env: CC=clang CXX=clang++ npm_config_clang=1 PLATFORM_BUILD=win-linux
+      env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
 
 node_js:
@@ -22,7 +21,6 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - sourceline: 'ppa:ubuntu-wine/ppa'
     packages:
       - g++-4.8
       - icnsutils
@@ -31,7 +29,6 @@ addons:
       - xz-utils
       - xorriso
       - xvfb
-      - wine1.8
 
 install:
   - nvm install 6
@@ -46,4 +43,4 @@ before_script:
   - sleep 3
 
 script:
-  - npm run publish:$PLATFORM_BUILD
+  - npm run publish:$TRAVIS_OS_NAME
