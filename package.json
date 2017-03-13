@@ -44,9 +44,9 @@
   "homepage": "https://github.com/lgaticaq/electron-chat-beerjs#readme",
   "dependencies": {},
   "devDependencies": {
-    "electron": "^1.4.14",
-    "electron-builder": "^13.8.2",
-    "electron-packager": "^8.5.0",
+    "electron": "^1.6.2",
+    "electron-builder": "^15.4.2",
+    "electron-packager": "^8.5.2",
     "live-server": "^1.2.0"
   },
   "productName": "chat-beerjs",
@@ -61,10 +61,16 @@
     "linux": {
       "category": "Chat",
       "target": [
-        "deb"
-      ],
+        "deb", "pacman"
+      ]
+    },
+    "deb": {
       "synopsis": "Chat simple usado de base para implementar electron"
     },
-    "publish": [{"provider": "github"}]
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ]
   }
 }
