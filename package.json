@@ -5,7 +5,11 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"not found\"",
+    "lint": "eslint 'main.js' 'app/assets/js/**/*.js' 'test/**/*.js'",
+    "format": "prettier-standard 'main.js' 'app/assets/js/**/*.js' 'test/**/*.js'",
+    "precommit": "lint-staged",
+    "pretest": "npm run lint -s && npm run format -s",
+    "test": "mocha",
     "server": "live-server app",
     "clean": "rm -rf ./dist",
     "clean:osx": "rm -rf ./dist/chat-beerjs-darwin-x64 ./dist/mac",
@@ -44,10 +48,21 @@
   "homepage": "https://github.com/lgaticaq/electron-chat-beerjs#readme",
   "dependencies": {},
   "devDependencies": {
-    "electron": "^1.6.2",
-    "electron-builder": "^19.4.0",
-    "electron-packager": "^8.5.2",
-    "live-server": "^1.2.0"
+    "electron": "^1.6.11",
+    "electron-builder": "^19.5.1",
+    "electron-packager": "^8.7.1",
+    "eslint": "^4.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.13.4",
+    "lint-staged": "^4.0.0",
+    "live-server": "^1.2.0",
+    "mocha": "^3.4.2",
+    "prettier-standard": "^5.1.0",
+    "spectron": "^3.6.4"
   },
   "productName": "chat-beerjs",
   "build": {
@@ -61,7 +76,8 @@
     "linux": {
       "category": "Chat",
       "target": [
-        "deb", "pacman"
+        "deb",
+        "pacman"
       ]
     },
     "deb": {
@@ -71,6 +87,40 @@
       {
         "provider": "github"
       }
+    ]
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "env": {
+      "node": true,
+      "mocha": true,
+      "es6": true,
+      "browser": true
+    },
+    "rules": {
+      "no-console": [
+        "error"
+      ]
+    }
+  },
+  "lint-staged": {
+    "main.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ],
+    "app/assets/js/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ],
+    "test/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
     ]
   }
 }
