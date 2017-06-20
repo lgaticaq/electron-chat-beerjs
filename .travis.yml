@@ -51,6 +51,8 @@ script:
   - npm test
 
 deploy:
-  - npm run publish:$TRAVIS_OS_NAME
+  provider: script
+  script: npm run publish:$TRAVIS_OS_NAME
+  skip_cleanup: true
   on:
     tags: true
