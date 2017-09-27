@@ -19,6 +19,4 @@ test_script:
   - npm test
 
 deploy_script:
-  - npm run publish:win
-  on:
-    appveyor_repo_tag: true
+  - IF DEFINED APPVEYOR_REPO_TAG_NAME npm run publish:win
