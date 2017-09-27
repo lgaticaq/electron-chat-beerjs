@@ -15,10 +15,10 @@ install:
   - ps: Install-Product node 6 x64
   - npm install
 
-test:
+test_script:
   - npm test
 
 deploy_script:
-  - cmd: npm run publish:win
+  - npm run publish:win
     on:
       appveyor_repo_tag: true
