@@ -20,5 +20,5 @@ test_script:
 
 deploy_script:
   - npm run publish:win
-    on:
-      appveyor_repo_tag: true
+  on:
+    appveyor_repo_tag: true
