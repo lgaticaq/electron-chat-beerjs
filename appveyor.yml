@@ -17,8 +17,7 @@ install:
 
 build: off
 
-test_script:
-  - npm test
+test: off
 
 deploy_script:
   - IF DEFINED APPVEYOR_REPO_TAG_NAME npm run publish:win
