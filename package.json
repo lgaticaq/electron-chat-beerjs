@@ -49,7 +49,7 @@
   "dependencies": {},
   "devDependencies": {
     "electron": "1.7.8",
-    "electron-builder": "19.33.0",
+    "electron-builder": "19.34.0",
     "electron-packager": "9.1.0",
     "eslint": "4.8.0",
     "eslint-config-standard": "10.2.1",
