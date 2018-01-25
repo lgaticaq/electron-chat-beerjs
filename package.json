@@ -62,7 +62,7 @@
     "live-server": "1.2.0",
     "mocha": "5.0.0",
     "prettier-standard": "7.0.3",
-    "spectron": "3.7.2"
+    "spectron": "3.8.0"
   },
   "productName": "chat-beerjs",
   "build": {
