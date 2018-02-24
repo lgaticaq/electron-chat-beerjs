@@ -61,7 +61,7 @@
     "lint-staged": "6.1.1",
     "live-server": "1.2.0",
     "mocha": "5.0.1",
-    "prettier-standard": "7.0.3",
+    "prettier-standard": "8.0.0",
     "spectron": "3.8.0"
   },
   "productName": "chat-beerjs",
